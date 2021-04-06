@@ -48,6 +48,7 @@ PLATFORMS
 
 DEPENDENCIES
   rspec (~> 3.10)
+  rspec-core (~> 3.10)
   rubocop (~> 1.12)
   simplecov (~> 0.21.2)
 

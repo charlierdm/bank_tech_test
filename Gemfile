@@ -9,3 +9,5 @@ gem "simplecov", "~> 0.21.2", require: false
 gem "rubocop", "~> 1.12", require: false
 
 gem "rspec", "~> 3.10"
+
+gem "rspec-core", "~> 3.10"
