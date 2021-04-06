@@ -21,5 +21,18 @@ date || credit || debit || balance
 
 ```
 
-## how to use
+## user stories
 
+```
+As a user,
+So I can store my money in my bank account,
+I’d like to be able to make a deposit.
+
+As a user, 
+So I can access money in my bank account,
+I’d like to be able to make a withdrawal.
+
+As a user,
+So I can keep track of what state my account is in,
+I’d like to see an account statement which details transactions and their respective dates as well as my current balance.
+```
