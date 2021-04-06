@@ -9,5 +9,9 @@ group :test do
   gem "rubocop", "~> 1.12", require: false
 
   gem "rspec", "~> 3.10"
+  
+  gem "rspec-core", "~> 3.10"
 
 end
+
+
