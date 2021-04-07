@@ -1,11 +1,8 @@
 class Transaction
-
   class << self
-
     def create
       Transaction.new
     end
-
   end
 
   def deposit(money)
@@ -15,5 +12,4 @@ class Transaction
   def withdraw(money)
     -money
   end
-
 end

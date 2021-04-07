@@ -6,7 +6,7 @@ class Account
 
   attr_reader :balance, :statement
 
-  def initialize(balance = 0, statement = Statement)
+  def initialize(balance = 0, _statement = Statement)
     @statement = Statement.create
     @balance = balance
   end
@@ -17,7 +17,7 @@ class Account
   end
 
   def withdraw(money, transaction = Transaction.create)
-    if @balance > money 
+    if @balance > money
       @balance += transaction.withdraw(money)
       add_to_statement(credit = nil, debit = money, @balance)
     else
@@ -36,5 +36,4 @@ class Account
   def view_statement
     @statement.output_statement_to_user
   end
-
 end
