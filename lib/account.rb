@@ -4,7 +4,7 @@ require_relative 'statement'
 class Account
   MINIMUM_BALANCE = 0
 
-  attr_reader :balance
+  attr_reader :balance, :statement
 
   def initialize(balance = 0, statement = Statement)
     @statement = Statement.create
@@ -13,14 +13,20 @@ class Account
 
   def deposit(money, transaction = Transaction.create)
     @balance += transaction.deposit(money)
+    add_to_statement(credit = money, debit = nil, @balance)
   end
 
   def withdraw(money, transaction = Transaction.create)
     if @balance > money 
       @balance += transaction.withdraw(money)
+      add_to_statement(credit = nil, debit = money, @balance)
     else
       raise 'Your account cannot go below £0'
     end
+  end
+
+  def add_to_statement(credit, debit, balance)
+    @statement.store_transaction(credit, debit, balance)
   end
 
 end

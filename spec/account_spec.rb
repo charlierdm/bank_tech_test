@@ -3,6 +3,7 @@ require 'account'
 describe Account do
   let(:account) { Account.new(1000) }
   let(:transaction) { instance_double("Transaction") }
+  let(:statement) { instance_double("Statement", :account_history => []) }
     
   it 'allows the user to set an initial balance instead of 0' do
     expect(account.balance).to eq(1000)
@@ -37,6 +38,20 @@ describe Account do
       expect{ new_account.withdraw(50, transaction) }.to raise_error('Your account cannot go below £0')
     end
 
+  end
+
+  context 'updating statement' do
+
+    before(:each) do
+      allow(transaction).to receive(:deposit) { 50 }
+      allow(statement).to receive(:store_deposit_transaction) { transaction }
+    end
+
+    xit 'adds a new transaction to the statement' do
+      new_account = Account.new(1000, statement)
+      expect{ account.deposit(50, transaction) }.to change { statement.account_history.length }.by(1)
+    end
+    
   end
 
 end
