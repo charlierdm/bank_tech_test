@@ -42,3 +42,26 @@ As a user,
 So I can keep track of what state my account is in,
 I’d like to see an account statement which details transactions and their respective dates as well as my current balance.
 ```
+
+## how to use
+
+```
+Fork and clone this repo, then run the following in the command line once in this projects directory.
+* $ bundle install
+* $ irb
+* $ require './lib/account'
+```
+
+```
+To interact with your account in your command line, run the following:
+* $ account = Account.new(your_starting_balance, eq: 1000)
+* $ account.deposit(500)  | deposit however much you like |
+* $ account.withdraw(500) | withdraw, as long as you have it in your account|
+* $ account.view_statement | view your transaction history |
+
+```
+
+```
+To run the tests using RSpec.
+Test coverage = 
+```
