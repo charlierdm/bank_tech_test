@@ -18,7 +18,20 @@ describe Account do
       account.deposit(50, transaction)
       expect(account.balance).to eq(1050)
     end
+
+  end
+
+  context 'making a withdrawal' do
     
+    before(:each) do
+      allow(transaction).to receive(:withdraw) { -50 }
+    end
+
+    it 'allows the user to create a withdrawal transaction' do
+      account.withdraw(50, transaction)
+      expect(account.balance).to eq(950)
+    end
+
   end
 
 end

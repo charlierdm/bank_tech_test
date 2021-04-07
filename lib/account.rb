@@ -13,6 +13,8 @@ class Account
     @balance += transaction.deposit(amount)
   end
 
-  
+  def withdraw(amount, transaction = Transaction.create )
+    @balance += transaction.withdraw(amount)
+  end
 
 end
