@@ -1,7 +1,8 @@
 require_relative 'transaction'
 require_relative 'statement'
 
-class Account 
+class Account
+  MINIMUM_BALANCE = 0
 
   attr_reader :balance
 
@@ -13,8 +14,12 @@ class Account
     @balance += transaction.deposit(money)
   end
 
-  def withdraw(money, transaction = Transaction.create )
-    @balance += transaction.withdraw(money)
+  def withdraw(money, transaction = Transaction.create)
+    if @balance > money 
+      @balance += transaction.withdraw(money)
+    else
+      raise 'Your account cannot go below £0'
+    end
   end
-
+  
 end

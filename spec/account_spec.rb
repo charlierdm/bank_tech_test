@@ -32,6 +32,11 @@ describe Account do
       expect(account.balance).to eq(950)
     end
 
+    it 'raises an error if the user tries to withdraw more than is in their account' do
+      new_account = Account.new(40)
+      expect{ new_account.withdraw(50, transaction) }.to raise_error('Your account cannot go below £0')
+    end
+
   end
 
 end
