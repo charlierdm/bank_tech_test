@@ -2,7 +2,6 @@
 
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
-[![Coverage](https://USERNAME.github.io/REPO/badge.svg)](https://github.com/USERNAME/REPO)
 
 ![ethical banking](https://user-images.githubusercontent.com/75075773/113856124-ba383100-9798-11eb-95de-e7d7e43e7e4a.jpg)
 
