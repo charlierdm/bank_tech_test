@@ -12,4 +12,8 @@ class Transaction
     money
   end
 
+  def withdraw(money)
+    -money
+  end
+
 end
