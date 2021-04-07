@@ -6,7 +6,8 @@ class Account
 
   attr_reader :balance
 
-  def initialize(balance = 0)
+  def initialize(balance = 0, statement = Statement)
+    @statement = Statement.create
     @balance = balance
   end
 
@@ -21,5 +22,5 @@ class Account
       raise 'Your account cannot go below £0'
     end
   end
-  
+
 end
