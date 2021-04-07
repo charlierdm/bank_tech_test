@@ -40,18 +40,26 @@ describe Account do
 
   end
 
-  context 'updating statement' do
+  context 'accessing and updating the statement' do
 
     before(:each) do
       allow(transaction).to receive(:deposit) { 50 }
-      allow(statement).to receive(:store_deposit_transaction) { transaction }
+      allow(statement).to receive(:store_transaction) 
+      allow(statement).to receive(:output_statement_to_user) { "date || credit || debit || balance\n07/04/2021 || 100 ||  || 1100\n07/04/2021 ||  || 500 || 600" }
     end
 
     xit 'adds a new transaction to the statement' do
-      new_account = Account.new(1000, statement)
-      expect{ account.deposit(50, transaction) }.to change { statement.account_history.length }.by(1)
+      expect{ account.deposit(credit = 50) }.to change { statement.account_history.length }.by(1)
+    end
+
+    it 'displays the transaction history to the user' do
+      account.deposit(100)
+      account.withdraw(500)
+      expect(account.return_statement).to eq("date || credit || debit || balance\n07/04/2021 || 100 ||  || 1100\n07/04/2021 ||  || 500 || 600")
     end
     
   end
+
+  
 
 end
