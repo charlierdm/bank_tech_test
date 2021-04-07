@@ -19,5 +19,14 @@ class Statement
     @account_history.push(new_transaction)
   end
 
+  def display_statement 
+    header = "date || credit || debit || balance\n"
+    footer = @account_history.map do |transaction|
+      "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
+    end
+
+    header + footer.join("\n")
+  end
+
 
 end

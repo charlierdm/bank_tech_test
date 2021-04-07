@@ -29,4 +29,8 @@ class Account
     @statement.store_transaction(credit, debit, balance)
   end
 
+  # def view_statement
+  #   @statement.display_statement
+  # end
+
 end
