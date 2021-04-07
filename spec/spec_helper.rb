@@ -1,5 +1,7 @@
 require 'simplecov'
+require 'shields_badge'
 SimpleCov.start
+SimpleCov.formatter = SimpleCov::Formatter::ShieldsBadge
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
