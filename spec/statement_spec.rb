@@ -18,6 +18,6 @@ describe Statement do
     statement = Statement.new
     statement.store_transaction(date = "07/04/2021", credit = 100, debit = nil, balance = 1100)
     statement.store_transaction(date = "07/04/2021", credit = nil, debit = 500, balance = 600)
-    expect(statement.return_statement).to eq("date || credit || debit || balance\n07/04/2021 || 100 ||  || 1100\n07/04/2021 ||  || 500 || 600")
+    expect { statement.return_statement }.to output("date || credit || debit || balance\n07/04/2021 || 100 ||  || 1100\n07/04/2021 ||  || 500 || 600\n").to_stdout
   end
 end

@@ -40,7 +40,7 @@ describe Account do
     before(:each) do
       allow(transaction).to receive(:deposit) { 50 }
       allow(statement).to receive(:store_transaction)
-      allow(statement).to receive(:output_statement_to_user) {
+      allow(statement).to receive(:return_statement) {
                             "date || credit || debit || balance\n07/04/2021 || 100 ||  || 1100\n07/04/2021 ||  || 500 || 600"
                           }
     end
@@ -52,7 +52,7 @@ describe Account do
     it 'displays the transaction history to the user' do
       account.deposit(100)
       account.withdraw(500)
-      expect(account.return_statement).to eq("date || credit || debit || balance\n07/04/2021 || 100 ||  || 1100\n07/04/2021 ||  || 500 || 600")
+      expect { account.return_statement }.to output("date || credit || debit || balance\n07/04/2021 || 100 ||  || 1100\n07/04/2021 ||  || 500 || 600\n").to_stdout
     end
   end
 end

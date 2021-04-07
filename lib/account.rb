@@ -33,7 +33,4 @@ class Account
     @statement.return_statement
   end
 
-  def view_statement
-    @statement.output_statement_to_user
-  end
 end

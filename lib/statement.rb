@@ -1,5 +1,5 @@
 class Statement
-  attr_reader :account_history, :header, :footer
+  attr_reader :account_history
 
   class << self
     def create
@@ -17,15 +17,12 @@ class Statement
   end
 
   def return_statement
-    @header = "date || credit || debit || balance\n"
-    @footer = @account_history.map do |transaction|
+    footer = @account_history.map do |transaction|
       "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
     end
-    @header + @footer.join("\n")
+    puts "date || credit || debit || balance\n#{footer.join("\n")}"
   end
+    
 
-  def output_statement_to_user
-    return_statement
-    puts @header + @footer.join("\n")
-  end
+
 end
