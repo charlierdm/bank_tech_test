@@ -9,12 +9,12 @@ class Account
     @balance = balance
   end
 
-  def deposit(amount, transaction = Transaction.create)
-    @balance += transaction.deposit(amount)
+  def deposit(money, transaction = Transaction.create)
+    @balance += transaction.deposit(money)
   end
 
-  def withdraw(amount, transaction = Transaction.create )
-    @balance += transaction.withdraw(amount)
+  def withdraw(money, transaction = Transaction.create )
+    @balance += transaction.withdraw(money)
   end
 
 end

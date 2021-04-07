@@ -2,9 +2,13 @@
 
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
+![ethical banking](https://user-images.githubusercontent.com/75075773/113856124-ba383100-9798-11eb-95de-e7d7e43e7e4a.jpg)
+
+
 ## task
 
-To create a program that meets the following specifications. The idea for this week of Makers Academy is to focus on code quality, making sure that I am practicing the principles learnt through previous weeks such as SRP(single responsibility principle) and DRY(don't repeat yourself) as well as following effective Object Orientated Design methods and a TDD workflow for each step of the development.
+ To complete a banking tech test within a short time frame. 
+ The idea for this week of Makers Academy is to focus on code quality, making sure that I am practicing the principles learnt through previous weeks such as SRP(single responsibility principle) and DRY(don't repeat yourself) as well as following effective Object Orientated Design methods and a TDD workflow for each step of the development. 
 
 ## acceptance criteria
 
