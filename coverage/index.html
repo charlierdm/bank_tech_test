@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-04-07T17:44:39+01:00">2021-04-07T17:44:39+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-04-07T18:12:51+01:00">2021-04-07T18:12:51+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -789,7 +789,7 @@
 
             
 
-            <code class="ruby">  def store_transaction(credit, debit, balance)</code>
+            <code class="ruby">  def store_transaction(date = Time.now.strftime(&#39;%d/%m/%Y&#39;), credit, debit, balance)</code>
           </li>
         </div>
       
@@ -800,7 +800,7 @@
 
             
 
-            <code class="ruby">    new_transaction = { date: Time.now.strftime(&#39;%d/%m/%Y&#39;), credit: credit, debit: debit, balance: balance }</code>
+            <code class="ruby">    new_transaction = { date: date, credit: credit, debit: debit, balance: balance }</code>
           </li>
         </div>
       
@@ -2081,7 +2081,7 @@
 
             
 
-            <code class="ruby">    statement.store_transaction(credit = 100, debit = nil, balance = 1100)</code>
+            <code class="ruby">    statement.store_transaction(date = &quot;07/04/2021&quot;, credit = 100, debit = nil, balance = 1100)</code>
           </li>
         </div>
       
@@ -2092,7 +2092,7 @@
 
             
 
-            <code class="ruby">    statement.store_transaction(credit = nil, debit = 500, balance = 600)</code>
+            <code class="ruby">    statement.store_transaction(date = &quot;07/04/2021&quot;, credit = nil, debit = 500, balance = 600)</code>
           </li>
         </div>
       
