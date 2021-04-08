@@ -27,6 +27,8 @@ date || credit || debit || balance
 
 ```
 
+Edge case: The client has not asked for an overdraft feature, I have included it as a safe guard against users being able to withdraw more than they have as a safety measure before discussing with the client.
+
 <img width="1034" alt="Screenshot 2021-04-08 at 11 53 20" src="https://user-images.githubusercontent.com/75075773/114014930-0fd81080-9861-11eb-980e-a9122806286f.png">
 
 
@@ -45,9 +47,6 @@ As a user,
 So I can keep track of what state my account is in,
 I’d like to see an account statement which details transactions and their respective dates as well as my current balance.
 ```
-
-<img width="711" alt="Screenshot 2021-04-08 at 11 54 12" src="https://user-images.githubusercontent.com/75075773/114015000-24b4a400-9861-11eb-8146-b6c99dd768c4.png">
-
 
 ## how to use
 
