@@ -65,6 +65,6 @@ $ **account.view_statement** | view your transaction history |
 To run the tests using RSpec enter the following in your command line:
 $ **rspec**
 
-Test coverage = 96.08% (Simplecov)
+Test coverage = 97.96% (Simplecov)
 
 ```
