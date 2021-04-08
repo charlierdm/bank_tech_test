@@ -1,35 +1,33 @@
 require_relative 'statement'
 
 class Account
-  MINIMUM_BALANCE = 0
+  
+  attr_reader :balance, :transaction_history
 
-  attr_reader :balance, :statement
-
-  def initialize(balance = 0, statement = Statement)
-    @statement = Statement.create
+  def initialize(balance = 0, statement = Statement.new)
     @balance = balance
+    @statement = statement
+    @transaction_history = []
   end
 
   def deposit(money)
-    @balance += money
-    add_to_statement(credit = '%.2f' % money, debit = nil, '%.2f' % @balance)
+    store_transaction(credit = '%.2f' % money, debit = nil, '%.2f' % @balance += money)
   end
 
   def withdraw(money)
     if @balance > money
-      @balance -= money
-      add_to_statement(credit = nil, debit = '%.2f' % money, '%.2f' % @balance)
+      store_transaction(credit = nil, debit = '%.2f' % money, '%.2f' % @balance -= money)
     else
       raise 'Your account cannot go below £0'
     end
   end
 
-  def add_to_statement(credit, debit, balance)
-    @statement.store_transaction(credit, debit, balance)
+  def store_transaction(date = Time.now.strftime('%d/%m/%Y'), credit, debit, balance)
+    @transaction_history.push({ date: date, credit: credit, debit: debit, balance: balance })
   end
 
   def view_statement
-    @statement.return_statement
+    @statement.display_statement(@transaction_history)
   end
 
 end
