@@ -27,7 +27,7 @@ date || credit || debit || balance
 
 ```
 
-<img width="1101" alt="Screenshot 2021-04-08 at 11 46 06" src="https://user-images.githubusercontent.com/75075773/114013996-0f8b4580-9860-11eb-8f95-194a29ea9ab8.png">
+<img width="1034" alt="Screenshot 2021-04-08 at 11 53 20" src="https://user-images.githubusercontent.com/75075773/114014930-0fd81080-9861-11eb-980e-a9122806286f.png">
 
 
 ## user stories
@@ -46,7 +46,7 @@ So I can keep track of what state my account is in,
 I’d like to see an account statement which details transactions and their respective dates as well as my current balance.
 ```
 
-<img width="599" alt="Screenshot 2021-04-08 at 11 47 38" src="https://user-images.githubusercontent.com/75075773/114014178-39446c80-9860-11eb-955a-da7e005b4f06.png">
+<img width="711" alt="Screenshot 2021-04-08 at 11 54 12" src="https://user-images.githubusercontent.com/75075773/114015000-24b4a400-9861-11eb-8146-b6c99dd768c4.png">
 
 
 ## how to use
