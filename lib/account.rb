@@ -13,13 +13,13 @@ class Account
 
   def deposit(money, transaction = Transaction.create)
     @balance += transaction.deposit(money)
-    add_to_statement(credit = money, debit = nil, @balance)
+    add_to_statement(credit = '%.2f' % money, debit = nil, '%.2f' % @balance)
   end
 
   def withdraw(money, transaction = Transaction.create)
     if @balance > money
       @balance += transaction.withdraw(money)
-      add_to_statement(credit = nil, debit = money, @balance)
+      add_to_statement(credit = nil, debit = '%.2f' % money, '%.2f' % @balance)
     else
       raise 'Your account cannot go below £0'
     end
@@ -29,11 +29,8 @@ class Account
     @statement.store_transaction(credit, debit, balance)
   end
 
-  def return_statement
+  def view_statement
     @statement.return_statement
   end
 
-  def view_statement
-    @statement.output_statement_to_user
-  end
 end

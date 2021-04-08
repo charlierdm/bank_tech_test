@@ -1,5 +1,4 @@
 require 'simplecov'
-require 'shields_badge'
 
 
 RSpec.configure do |config|
