@@ -12,22 +12,3 @@ describe 'user experience' do
   end
 
 end
-
-
-
-=begin
-> takeaway = Takeaway.new
-> takeaway.print_menu
-Dish 1: 5 pounds
-Dish 2: 3 pounds
-> takeaway.add_to_basket("Dish 1")
-> takeaway.total
-5
-Then your RSpec test could take all of those same commands and test their output and that the final total is 5. There is no need to start an IRB in a terminal or anything like that:
-it "allows a user to see a menu, order dishes and see their order total" do
-  takeaway = Takeaway.new
-  expect(takeaway.print_menu).to # exercise for the reader: fill in something here to check the output of print_menu
-  takeaway.add_to_basket("Dish 1")
-  expect(takeaway.total).to eq(5)
-end
-=end
