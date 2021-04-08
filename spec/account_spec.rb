@@ -52,7 +52,7 @@ describe Account do
     it 'displays the transaction history to the user' do
       account.deposit(100)
       account.withdraw(500)
-      expect { account.view_statement }.to output("date || credit || debit || balance\n07/04/2021 || 100.00 ||  || 1100.00\n07/04/2021 ||  || 500.00 || 600.00\n").to_stdout
+      expect { account.view_statement }.to output("date || credit || debit || balance\n08/04/2021 ||  || 500.00 || 600.00\n08/04/2021 || 100.00 ||  || 1100.00\n").to_stdout
     end
   end
 end
