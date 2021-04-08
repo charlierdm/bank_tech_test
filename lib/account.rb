@@ -1,7 +1,6 @@
 require_relative 'statement'
 
 class Account
-  
   attr_reader :balance, :transaction_history
 
   def initialize(balance = 0, statement = Statement.new)
@@ -11,12 +10,12 @@ class Account
   end
 
   def deposit(money)
-    store_transaction(credit = '%.2f' % money, debit = nil, '%.2f' % @balance += money)
+    store_transaction(credit = '%.2f' % money, debit = nil, format('%.2f', @balance += money))
   end
 
   def withdraw(money)
     if @balance > money
-      store_transaction(credit = nil, debit = '%.2f' % money, '%.2f' % @balance -= money)
+      store_transaction(credit = nil, debit = '%.2f' % money, format('%.2f', @balance -= money))
     else
       raise 'Your account cannot go below £0'
     end
@@ -29,5 +28,4 @@ class Account
   def view_statement
     @statement.display_statement(@transaction_history)
   end
-
 end
