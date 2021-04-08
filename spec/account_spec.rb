@@ -39,7 +39,7 @@ describe Account do
   context 'accessing and updating the statement' do
     before(:each) do
       allow(transaction).to receive(:deposit) { 50 }
-      allow(statement).to receive(:store_transaction)
+      allow(statement).to receive(:store_transaction) 
       allow(statement).to receive(:return_statement) {
                             "date || credit || debit || balance\n07/04/2021 || 100.00 ||  || 1100.00\n07/04/2021 ||  || 500.00 || 600.00"
                           }
