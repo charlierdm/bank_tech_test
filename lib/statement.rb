@@ -17,7 +17,7 @@ class Statement
   end
 
   def return_statement
-    footer = @account_history.map do |transaction|
+    footer = @account_history.reverse.map do |transaction|
       "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
     end
     puts "date || credit || debit || balance\n#{footer.join("\n")}"
