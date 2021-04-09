@@ -10,12 +10,12 @@ class Account
   end
 
   def deposit(money)
-    store_transaction(credit = '%.2f' % money, debit = nil, format('%.2f', @balance += money))
+    store_transaction(credit = money, debit = nil, @balance += money)
   end
 
   def withdraw(money)
     if @balance > money
-      store_transaction(credit = nil, debit = '%.2f' % money, format('%.2f', @balance -= money))
+      store_transaction(credit = nil, debit = money, @balance -= money)
     else
       raise 'Your account cannot go below £0'
     end
