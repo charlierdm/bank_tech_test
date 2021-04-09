@@ -29,7 +29,7 @@ date || credit || debit || balance
 
 Edge case: The client has not asked for an overdraft feature, I have included it as a safe guard against users being able to withdraw more than they have as a safety measure before discussing with the client.
 
-<img width="1034" alt="Screenshot 2021-04-08 at 11 53 20" src="https://user-images.githubusercontent.com/75075773/114014930-0fd81080-9861-11eb-980e-a9122806286f.png">
+<img width="894" alt="Screenshot 2021-04-09 at 09 00 40" src="https://user-images.githubusercontent.com/75075773/114149595-fd1e1400-9912-11eb-9ba1-46db26f3aa79.png">
 
 
 ## user stories
