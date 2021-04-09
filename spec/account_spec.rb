@@ -1,8 +1,8 @@
 require 'account'
 
 describe Account do
-  let(:statement) { instance_double('Statement') }
-  let(:account) { Account.new(1000, statement) }
+  let(:transaction) { instance_double('Transaction') }
+  let(:account) { Account.new(1000) }
 
   it 'allows the user to set an initial balance instead of 0' do
     expect(account.balance).to eq(1000)
@@ -22,14 +22,22 @@ describe Account do
     end
 
     it 'raises an error if the user tries to withdraw more than is in their account' do
-      new_account = Account.new(40, statement)
-      expect { new_account.withdraw(50) }.to raise_error('Your account cannot go below £0')
+      expect { subject.withdraw(1001) }.to raise_error('Your account cannot go below £0')
     end
   end
 
   context 'tracking transaction history' do
     it 'adds a new transaction to transaction history' do
       expect { account.deposit(50) }.to change { account.transaction_history.length }.by(1)
+    end
+  end
+
+  xcontext 'diplays the transaction history to the user' do 
+    it 'prints the users transactions in a readable format' do
+      expect do
+        subject.view_statement([date = '07/04/2021', credit = 500, debit = nil,
+                                     balance = 500])
+      end.to output("date || credit || debit || balance\n07/04/2021 || 500.00 ||  || 500.00\n").to_stdout
     end
   end
 end
