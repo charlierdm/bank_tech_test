@@ -20,9 +20,9 @@ class Account
     end
   end
 
-  def view_statement(transactions = @transaction_history)
-    footer = transactions.reverse.map do |transaction|
-      "#{transaction.date} || #{format_currency(transaction.credit)} || #{format_currency(transaction.debit)} || #{format_currency(transaction.balance)}"
+  def view_statement
+    footer = @transaction_history.reverse.map do |transaction|
+      "#{transaction.date.strftime('%d/%m/%Y')} || #{format_currency(transaction.credit)} || #{format_currency(transaction.debit)} || #{format_currency(transaction.balance)}"
     end
     puts "date || credit || debit || balance\n#{footer.join("\n")}"
   end
