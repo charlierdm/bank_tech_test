@@ -35,11 +35,13 @@ describe Account do
     end
   end
 
-  xcontext 'diplays the transaction history to the user' do 
-    it 'prints the users transactions in a readable format' do
+  context 'diplays the transaction history to the user' do 
+    xit 'prints the users transactions in a readable format' do
+      transaction_withdraw = double("Transaction", date: "07/04/2021", credit: nil, debit: 50, balance: 1450)
+      allow(transaction_withdraw).to receive(:new)
+      account.withdraw(50, transaction_withdraw)
       expect do
-        subject.view_statement([date = '07/04/2021', credit = 500, debit = nil,
-                                     balance = 500])
+        account.view_statement
       end.to output("date || credit || debit || balance\n07/04/2021 || 500.00 ||  || 500.00\n").to_stdout
     end
   end
