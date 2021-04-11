@@ -8,13 +8,13 @@ class Account
     @transaction_history = []
   end
 
-  def deposit(amount)
-    @transaction_history << Transaction.new(credit = amount, debit = nil, @balance += amount)
+  def deposit(amount, transaction = Transaction)
+    @transaction_history << transaction.new(credit = amount, debit = nil, @balance += amount)
   end
 
-  def withdraw(amount)
+  def withdraw(amount, transaction = Transaction)
     if @balance > amount
-      @transaction_history << Transaction.new(credit = nil, debit = amount, @balance -= amount)
+      @transaction_history << transaction.new(credit = nil, debit = amount, @balance -= amount)
     else
       raise 'Your account cannot go below £0'
     end
