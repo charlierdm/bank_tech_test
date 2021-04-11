@@ -1,8 +1,9 @@
 require 'account'
 
 describe Account do
-  let(:transaction) { instance_double('Transaction') }
   let(:account) { Account.new(1000) }
+  let(:transaction) { class_double('Transaction') }
+
 
   it 'allows the user to set an initial balance instead of 0' do
     expect(account.balance).to eq(1000)
@@ -10,13 +11,15 @@ describe Account do
 
   context 'creates a deposit' do
     it 'allows the user to create a deposit transaction' do
-      account.deposit(50)
-      expect(account.balance).to eq(1050)
+      allow(transaction).to receive(:new) { credit = 500 }
+      account.deposit(500 ,transaction)
+      expect(account.balance).to eq(1500)
     end
   end
 
   context 'making a withdrawal' do
     it 'allows the user to create a withdrawal transaction' do
+      allow(transaction).to receive(:new) { debit = 50}
       account.withdraw(50)
       expect(account.balance).to eq(950)
     end
