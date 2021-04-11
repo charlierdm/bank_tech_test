@@ -11,7 +11,7 @@ describe Account do
 
   context 'creates a deposit' do
     it 'allows the user to create a deposit transaction' do
-      allow(transaction).to receive(:new) { credit = 500 }
+      allow(transaction).to receive(:new) { date = "07/04/2021", credit = 500, debit = nil, balance = 1500 }
       account.deposit(500 ,transaction)
       expect(account.balance).to eq(1500)
     end
@@ -19,7 +19,7 @@ describe Account do
 
   context 'making a withdrawal' do
     it 'allows the user to create a withdrawal transaction' do
-      allow(transaction).to receive(:new) { debit = 50}
+      allow(transaction).to receive(:new) { date = "07/04/2021", credit = nil, debit = 50, balance = 1500 }
       account.withdraw(50)
       expect(account.balance).to eq(950)
     end
