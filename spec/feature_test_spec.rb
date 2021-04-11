@@ -7,9 +7,10 @@ describe 'user experience' do
     Time.stub(:now).and_return(Time.mktime(2021, 4, 7))
     account = Account.new(400)
     expect(account.balance).to eq(400)
-    allow(transaction).to receive(:new) { {date: "07/04/2021", credit: 500} }
-    account.deposit(transaction)
-    account.withdraw(transaction)
+    allow(transaction).to receive(:new) { date = "07/04/2021", credit = 500, debit = nil, balance = 1500 }
+    account.deposit(500, transaction)
+    allow(transaction).to receive(:new) { date = "07/04/2021", credit = nil, debit = 50, balance = 1450 }
+    account.withdraw(50, transaction)
     expect do
       account.view_statement
     end.to output("date || credit || debit || balance\n07/04/2021 ||  || 300.00 || 600.00\n07/04/2021 || 500.00 ||  || 900.00\n").to_stdout
